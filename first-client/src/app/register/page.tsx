@@ -19,7 +19,9 @@ export default function Register() {
           </button>
           <h6 className="mt-5">
             Have an account{" "}
-            <span className="text-blue-900 hover:underline">Login</span>
+            <a href="/login">
+              <span className="text-blue-900 hover:underline">Login</span>
+            </a>
           </h6>
         </form>
       </div>
