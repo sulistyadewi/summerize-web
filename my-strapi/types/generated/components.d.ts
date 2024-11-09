@@ -1,18 +1,5 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
-export interface LayoutHeroSection extends Struct.ComponentSchema {
-  collectionName: 'components_layout_hero_sections';
-  info: {
-    displayName: 'Hero Section';
-  };
-  attributes: {
-    heading: Schema.Attribute.String;
-    subHeading: Schema.Attribute.Text;
-    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
-    link: Schema.Attribute.Component<'component.link', false>;
-  };
-}
-
 export interface SharedSlider extends Struct.ComponentSchema {
   collectionName: 'components_shared_sliders';
   info: {
@@ -75,6 +62,31 @@ export interface SharedMedia extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutHeroSection extends Struct.ComponentSchema {
+  collectionName: 'components_layout_hero_sections';
+  info: {
+    displayName: 'Hero Section';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    subHeading: Schema.Attribute.Text;
+    image: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    link: Schema.Attribute.Component<'component.link', false>;
+  };
+}
+
+export interface LayoutFeaturesSection extends Struct.ComponentSchema {
+  collectionName: 'components_layout_features_sections';
+  info: {
+    displayName: 'Features-section';
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.Text;
+    feature: Schema.Attribute.Component<'component.features', true>;
+  };
+}
+
 export interface ComponentLink extends Struct.ComponentSchema {
   collectionName: 'components_component_links';
   info: {
@@ -101,17 +113,31 @@ export interface ComponentHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentFeatures extends Struct.ComponentSchema {
+  collectionName: 'components_component_features';
+  info: {
+    displayName: 'Features';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    subHeading: Schema.Attribute.Text;
+    icon: Schema.Attribute.Enumeration<['Save Time', 'Cloud', 'Accurate']>;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'layout.hero-section': LayoutHeroSection;
       'shared.slider': SharedSlider;
       'shared.seo': SharedSeo;
       'shared.rich-text': SharedRichText;
       'shared.quote': SharedQuote;
       'shared.media': SharedMedia;
+      'layout.hero-section': LayoutHeroSection;
+      'layout.features-section': LayoutFeaturesSection;
       'component.link': ComponentLink;
       'component.hero-section': ComponentHeroSection;
+      'component.features': ComponentFeatures;
     }
   }
 }

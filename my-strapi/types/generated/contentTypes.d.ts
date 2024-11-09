@@ -654,7 +654,9 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     title: Schema.Attribute.String & Schema.Attribute.Required;
     description: Schema.Attribute.Text & Schema.Attribute.Required;
     herosection: Schema.Attribute.DynamicZone<['component.hero-section']>;
-    blocks: Schema.Attribute.DynamicZone<['layout.hero-section']>;
+    blocks: Schema.Attribute.DynamicZone<
+      ['layout.hero-section', 'layout.features-section']
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

@@ -1,6 +1,6 @@
 export default async function Features() {
   return (
-    <div className="w-full flex justify-center ">
+    <div className="w-full flex justify-center my-5">
       <div className="flex mx-auto">
         <div className="text-center py-6">
           <svg
