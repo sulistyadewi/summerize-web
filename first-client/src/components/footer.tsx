@@ -1,4 +1,4 @@
-export default async function Footer() {
+export default async function Footer({}) {
   return (
     <div className="bg-black flex justify-between items-center px-5 py-6">
       <div>

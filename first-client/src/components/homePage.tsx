@@ -1,4 +1,5 @@
-import { strapiImageBg } from "@/components/strapiImage";
+import image from "next/image";
+import { StrapiImageBg } from "@/components/strapiImage";
 
 interface ImageProps {
   id: number;
@@ -37,9 +38,11 @@ export default async function HomePage({
   return (
     <div className="text-center">
       <div className="bg-cover bg-no-repeat w-full h-screen">
-        <img
+        <StrapiImageBg
           src={imageUrl}
           alt={image.alternativeText ?? "no alternative text"}
+          width={1920}
+          height={1080}
           className="w-full h-full inset-0 absolute object-cover"
         />
         <div className="flex -mt-5 justify-between sticky">

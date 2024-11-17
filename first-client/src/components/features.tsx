@@ -1,47 +1,106 @@
-export default async function Features() {
+// import { features } from "process";
+
+function getIcon(name: string) {
+  switch (name) {
+    case "Save Time":
+      return <SaveTimeIcon />;
+    case "Cloud":
+      return <CloudIcon />;
+    case "Accurate":
+      return <AccurateIcon />;
+    default:
+      return null;
+  }
+}
+
+interface featureProps {
+  id: number;
+  heading: string;
+  subHeading: string;
+  icon: string;
+}
+
+interface fProps {
+  id: number;
+  documentId: string;
+  _component: string;
+  title: string;
+  description: string;
+  feature: featureProps;
+}
+
+export default function Features({ data }: { readonly data: fProps }) {
+  // console.dir(data, { depth: null });
+  const { feature } = data;
+  console.dir(feature, { depth: null });
+  console.log(feature, "ini heading");
+
   return (
     <div className="w-full flex justify-center my-5">
       <div className="flex mx-auto">
         <div className="text-center py-6">
-          <svg
-            className="w-8 h-8 mx-auto"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-          >
-            <path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-          </svg>
-          <h1 className="mt-2">Save Time</h1>
-          <h6 className="text-slate-500 text-sm max-w-sm mt-1">
-            No need to watch the entire video. Get the summary and save time
-          </h6>
-        </div>
-        <div className="text-center py-6">
-          <svg
-            className="w-8 h-8 mx-auto"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-          >
-            <path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-          </svg>
-          <h1 className="mt-2">Save Time</h1>
-          <h6 className="text-slate-500 text-sm max-w-sm mt-1">
-            No need to watch the entire video. Get the summary and save time
-          </h6>
-        </div>
-        <div className="text-center py-6">
-          <svg
-            className="w-8 h-8 mx-auto"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-          >
-            <path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z" />
-          </svg>
-          <h1 className="mt-2">Save Time</h1>
-          <h6 className="text-slate-500 text-sm max-w-sm mt-1">
-            No need to watch the entire video. Get the summary and save time
-          </h6>
+          <h1 className="mt-2">{feature.heading}</h1>
+          <h6 className="text-slate-500 text-sm max-w-sm mt-1">{}</h6>
         </div>
       </div>
     </div>
+  );
+}
+
+function AccurateIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
+  );
+}
+
+function SaveTimeIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="12" cy="12" r="10" />
+      <polyline points="12 6 12 12 16 14" />
+    </svg>
+  );
+}
+
+function CloudIcon(props: any) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+    </svg>
   );
 }

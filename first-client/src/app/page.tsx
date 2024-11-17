@@ -6,6 +6,7 @@ import Dashboard from "@/components/dashboard";
 import Features from "@/components/features";
 import Footer from "@/components/footer";
 import HomePage from "@/components/homePage";
+import { getStrapiUrl } from "@/lib/utils";
 
 const homePageQuery = qs.stringify({
   populate: {
@@ -22,8 +23,10 @@ const homePageQuery = qs.stringify({
           },
         },
         "layout.features-section": {
-          feature: {
-            populate: true,
+          populate: {
+            feature: {
+              populate: true,
+            },
           },
         },
       },
@@ -32,7 +35,9 @@ const homePageQuery = qs.stringify({
 });
 
 async function getStrapiData(path: string) {
-  const baseUrl = "http://localhost:1337";
+  const baseUrl = getStrapiUrl();
+  // console.log(baseUrl, "ini base url");
+
   let url = new URL(path, baseUrl);
   url.search = homePageQuery;
   try {
@@ -47,10 +52,10 @@ async function getStrapiData(path: string) {
 
 export default async function Home() {
   const strapiData = await getStrapiData("/api/home-page");
-  console.log(strapiData, "test console log");
-  console.dir(strapiData, { depth: null });
+  // console.log(strapiData, "test console log");
+  // console.dir(strapiData, { depth: null });
   const { blocks } = strapiData.data;
-  // console.log(blocks[0]);
+  // console.log(blocks[1], "ini blocks");
 
   // const { title, description } = strapiData.data;
 
@@ -58,7 +63,7 @@ export default async function Home() {
     <div className="">
       {/* <Dashboard /> */}
       <HomePage data={blocks[0]} />
-      <Features />
+      <Features data={blocks[1]} />
       <Footer />
     </div>
   );

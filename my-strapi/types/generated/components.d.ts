@@ -78,7 +78,8 @@ export interface LayoutHeroSection extends Struct.ComponentSchema {
 export interface LayoutFeaturesSection extends Struct.ComponentSchema {
   collectionName: 'components_layout_features_sections';
   info: {
-    displayName: 'Features-section';
+    displayName: 'Features Section';
+    description: '';
   };
   attributes: {
     title: Schema.Attribute.String;
