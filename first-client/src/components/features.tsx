@@ -3,7 +3,7 @@
 function getIcon(name: string) {
   switch (name) {
     case "Save Time":
-      return <SaveTimeIcon />;
+      return <SaveTimeIcon className="text-green-600" />;
     case "Cloud":
       return <CloudIcon />;
     case "Accurate":
@@ -28,8 +28,12 @@ interface fProps {
   description: string;
   feature: featureProps;
 }
-
-export default function Features({ data }: { readonly data: fProps }) {
+// { data }: { readonly data: fProps }
+export default function Features({
+  data,
+}: {
+  data: { feature: featureProps[] };
+}) {
   // console.dir(data, { depth: null });
   const { feature } = data;
   console.dir(feature, { depth: null });
@@ -38,10 +42,15 @@ export default function Features({ data }: { readonly data: fProps }) {
   return (
     <div className="w-full flex justify-center my-5">
       <div className="flex mx-auto">
-        <div className="text-center py-6">
-          <h1 className="mt-2">{feature.heading}</h1>
-          <h6 className="text-slate-500 text-sm max-w-sm mt-1">{}</h6>
-        </div>
+        {feature.map((feat, index) => (
+          <div className="text-center py-6">
+            {getIcon(feat.icon)}
+            <h1 className="mt-2">{feat.heading}</h1>
+            <h6 className="text-slate-500 text-sm max-w-sm mt-1">
+              {feat.subHeading}
+            </h6>
+          </div>
+        ))}
       </div>
     </div>
   );

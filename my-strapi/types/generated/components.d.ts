@@ -75,6 +75,20 @@ export interface LayoutHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutFooterSection extends Struct.ComponentSchema {
+  collectionName: 'components_layout_footer_sections';
+  info: {
+    displayName: 'Footer Section';
+    description: '';
+  };
+  attributes: {
+    logo: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    text: Schema.Attribute.String;
+    logoComp: Schema.Attribute.Component<'component.logo', false>;
+    iconComp: Schema.Attribute.Component<'component.icon', true>;
+  };
+}
+
 export interface LayoutFeaturesSection extends Struct.ComponentSchema {
   collectionName: 'components_layout_features_sections';
   info: {
@@ -88,6 +102,19 @@ export interface LayoutFeaturesSection extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentLogo extends Struct.ComponentSchema {
+  collectionName: 'components_component_logos';
+  info: {
+    displayName: 'logo';
+    description: '';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
 export interface ComponentLink extends Struct.ComponentSchema {
   collectionName: 'components_component_links';
   info: {
@@ -96,6 +123,18 @@ export interface ComponentLink extends Struct.ComponentSchema {
   attributes: {
     url: Schema.Attribute.String;
     text: Schema.Attribute.String;
+    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ComponentIcon extends Struct.ComponentSchema {
+  collectionName: 'components_component_icons';
+  info: {
+    displayName: 'icon';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    url: Schema.Attribute.String;
     isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
   };
 }
@@ -135,8 +174,11 @@ declare module '@strapi/strapi' {
       'shared.quote': SharedQuote;
       'shared.media': SharedMedia;
       'layout.hero-section': LayoutHeroSection;
+      'layout.footer-section': LayoutFooterSection;
       'layout.features-section': LayoutFeaturesSection;
+      'component.logo': ComponentLogo;
       'component.link': ComponentLink;
+      'component.icon': ComponentIcon;
       'component.hero-section': ComponentHeroSection;
       'component.features': ComponentFeatures;
     }

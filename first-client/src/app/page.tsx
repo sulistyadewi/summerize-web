@@ -55,7 +55,7 @@ export default async function Home() {
   // console.log(strapiData, "test console log");
   // console.dir(strapiData, { depth: null });
   const { blocks } = strapiData.data;
-  // console.log(blocks[1], "ini blocks");
+  console.log(blocks[1], "ini blocks");
 
   // const { title, description } = strapiData.data;
 
