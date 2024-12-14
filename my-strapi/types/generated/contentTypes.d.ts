@@ -639,6 +639,37 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiGlobalPageGlobalPage extends Struct.SingleTypeSchema {
+  collectionName: 'global_pages';
+  info: {
+    singularName: 'global-page';
+    pluralName: 'global-pages';
+    displayName: 'Global-page';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Schema.Attribute.String;
+    description: Schema.Attribute.String;
+    header: Schema.Attribute.Component<'layout.header', false>;
+    footer: Schema.Attribute.Component<'layout.footer', false>;
+    createdAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    publishedAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::global-page.global-page'
+    >;
+  };
+}
+
 export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
   collectionName: 'home_pages';
   info: {
@@ -1052,6 +1083,7 @@ declare module '@strapi/strapi' {
       'api::author.author': ApiAuthorAuthor;
       'api::category.category': ApiCategoryCategory;
       'api::global.global': ApiGlobalGlobal;
+      'api::global-page.global-page': ApiGlobalPageGlobalPage;
       'api::home-page.home-page': ApiHomePageHomePage;
       'admin::permission': AdminPermission;
       'admin::user': AdminUser;

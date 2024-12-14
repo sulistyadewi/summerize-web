@@ -1,70 +1,39 @@
-import qs from "qs";
+// import qs from "qs";
 import Image from "next/image";
 
-import Register from "./register/page";
-import Dashboard from "@/components/dashboard";
+// import Register from "./register/page";
+// import Dashboard from "@/components/dashboard";
 import Features from "@/components/features";
-import Footer from "@/components/footer";
+// import Footer from "@/components/footer";
 import HomePage from "@/components/homePage";
-import { getStrapiUrl } from "@/lib/utils";
+// import { getStrapiUrl } from "@/lib/utils";
+import { features } from "process";
+import { getHomePage } from "@/data/loaders";
 
-const homePageQuery = qs.stringify({
-  populate: {
-    blocks: {
-      on: {
-        "layout.hero-section": {
-          populate: {
-            image: {
-              fields: ["url", "alternativeText"],
-            },
-            link: {
-              populate: true,
-            },
-          },
-        },
-        "layout.features-section": {
-          populate: {
-            feature: {
-              populate: true,
-            },
-          },
-        },
-      },
-    },
-  },
-});
+const blockComponent = {
+  "layout.hero-section": HomePage,
+  "layout.features-section": Features,
+};
 
-async function getStrapiData(path: string) {
-  const baseUrl = getStrapiUrl();
-  // console.log(baseUrl, "ini base url");
-
-  let url = new URL(path, baseUrl);
-  url.search = homePageQuery;
-  try {
-    const response = await fetch(url.href, { cache: "no-store" });
-    const data = await response.json();
-    // console.log(data, "test data");
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
-}
+const render = (block: any) => {
+  let Component =
+    blockComponent[block.__component as keyof typeof blockComponent];
+  return Component ? <Component key={block.id} data={block} /> : null;
+};
 
 export default async function Home() {
-  const strapiData = await getStrapiData("/api/home-page");
+  const strapiData = await getHomePage();
+  console.log(strapiData);
+
   // console.log(strapiData, "test console log");
-  // console.dir(strapiData, { depth: null });
-  const { blocks } = strapiData.data;
-  console.log(blocks[1], "ini blocks");
+  console.dir(strapiData, { depth: null });
+  const { blocks } = strapiData;
+  if (!blocks) {
+    return <div>blocks not found</div>;
+  }
+  return <main>{blocks.map((block: any) => render(block))}</main>;
+  // return <Dashboard />;
+  // console.log(blocks[1], "ini blocks");
 
   // const { title, description } = strapiData.data;
-
-  return (
-    <div className="">
-      {/* <Dashboard /> */}
-      <HomePage data={blocks[0]} />
-      <Features data={blocks[1]} />
-      <Footer />
-    </div>
-  );
 }

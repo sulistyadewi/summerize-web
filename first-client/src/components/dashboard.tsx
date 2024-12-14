@@ -1,5 +1,5 @@
 import Image from "next/image";
-import logo from "../app/image/logo_summerize__1_-removebg-preview.png";
+import Card from "./card";
 
 export default async function Dashboard() {
   return (
@@ -7,7 +7,7 @@ export default async function Dashboard() {
       <div className="bg-red-400  h-screen flex basis-[20%]">
         <div className="">
           <div className="-mt-7 -ml-4">
-            <Image src={logo} width={170} height={170} alt="logo" />
+            <Image src="/logo.png" width={170} height={170} alt="logo" />
           </div>
           <ul className="flex flex-col w-[17rem]">
             <li className="text-xl p-2 bg-slate-500">Dahsboard</li>
@@ -33,7 +33,61 @@ export default async function Dashboard() {
           </div>
         </div>
         <div className="bg-blue-400 basis-[90%] p-8 gap-5 grid grid-cols-3">
-          <div className="bg-purple-400 max-w-sm w-72 h-56 p-3 rounded-lg">
+          <form action="" className="">
+            <div className="flex mt-2 gap-3">
+              <div className="">
+                <input
+                  type="text"
+                  placeholder="testuser"
+                  className="px-5 py-3 rounded-md"
+                />
+              </div>
+              <div className="">
+                <input
+                  type="email"
+                  placeholder="testuser@email.com"
+                  className="px-5 py-3 rounded-md"
+                />
+              </div>
+              <input
+                type="text"
+                value="You have credit(s)"
+                disabled
+                className="text-black rounded-md px-2 py-3"
+              />
+            </div>
+            <div className="flex gap-3 mt-4">
+              <div>
+                <input
+                  type="text"
+                  placeholder="firstName"
+                  className="px-9 py-3 rounded-md"
+                />
+              </div>
+              <div>
+                <input
+                  type="text"
+                  placeholder="lastName"
+                  className="px-9 py-3 rounded-md"
+                />
+              </div>
+            </div>
+            <div className="mt-4">
+              <textarea
+                name=""
+                id=""
+                rows={10}
+                cols={65}
+                placeholder="Write you bio here..."
+                className="rounded-md p-1"
+              ></textarea>
+            </div>
+            <button className="bg-black text-white py-2 px-3 text-sm rounded-md flex">
+              Update Profile
+            </button>
+          </form>
+          {/* <Card /> */}
+          {/* <div className="bg-purple-400 max-w-sm w-72 h-56 p-3 rounded-lg">
             <h1 className="text-2xl">Title</h1>
             <p className="mt-4 text-ellipsis overflow-hidden">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid
@@ -144,7 +198,7 @@ export default async function Dashboard() {
                 />
               </svg>
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
