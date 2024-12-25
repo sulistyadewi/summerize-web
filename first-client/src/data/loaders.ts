@@ -4,10 +4,11 @@ import { get } from "http";
 import { headers } from "next/headers";
 import { json } from "stream/consumers";
 import { error } from "console";
+import { url } from "inspector";
 
 const baseUrl = getStrapiUrl();
 
-const fetchData = async (url: string) => {
+const fetchData = async (url: any) => {
   let token = null;
   let headers = {
     method: "GET",
@@ -19,12 +20,14 @@ const fetchData = async (url: string) => {
   try {
     let response = await fetch(url, token ? headers : {});
     let data = await response.json();
+    return data;
   } catch (err) {
     console.log(err);
   }
 };
 
 export async function getHomePage() {
+  // throw new Error("ini error");
   const url = new URL("/api/home-page", baseUrl);
   url.search = qs.stringify({
     populate: {
@@ -50,6 +53,27 @@ export async function getHomePage() {
         },
       },
     },
+  });
+  return await fetchData(url.href);
+}
+
+export async function getGlobalData() {
+  const url = new URL("/api/global-page", baseUrl);
+  url.search = qs.stringify({
+    populate: [
+      "header.imageLogo",
+      "header.btnLogin",
+      "footer.textLogo",
+      "footer.icon",
+    ],
+  });
+  return await fetchData(url.href);
+}
+
+export async function getMetaData() {
+  const url = new URL("/api/global-page", baseUrl);
+  url.search = qs.stringify({
+    field: ["title", "description"],
   });
   return await fetchData(url.href);
 }

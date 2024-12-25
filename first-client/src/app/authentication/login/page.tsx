@@ -1,7 +1,7 @@
 export default function Login() {
   return (
-    <div>
-      <div className="max-w-sm ring-4 ring-amber-400 px-6 py-6 mx-auto mt-10 rounded-lg">
+    <div className="z-50">
+      <div className="max-w-sm ring-4 ring-amber-400 px-6 py-6 mx-auto rounded-lg">
         <form action="">
           <div className="flex flex-col">
             <label htmlFor="">Username/Email</label>

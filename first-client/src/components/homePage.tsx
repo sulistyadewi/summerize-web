@@ -37,15 +37,15 @@ export default async function HomePage({
   const imageUrl = "http://localhost:1337" + image.url;
   return (
     <div className="text-center">
-      <div className="bg-cover bg-no-repeat w-full h-screen">
+      <div className="bg-cover bg-no-repeat w-full h-screen -z-50">
         <StrapiImageBg
           src={imageUrl}
           alt={image.alternativeText ?? "no alternative text"}
           width={1920}
           height={1080}
-          className="w-full h-full inset-0 absolute object-cover"
+          className="w-full h-full inset-0 absolute object-cover -z-50"
         />
-        <div className="flex -mt-5 justify-between sticky">
+        {/* <div className="flex -mt-5 justify-between sticky">
           <img
             src="./image/logo_summerize.png"
             width={170}
@@ -56,7 +56,7 @@ export default async function HomePage({
           <a href="/login" className="flex mt-10 mr-10 text-lg hover:underline">
             Login
           </a>
-        </div>
+        </div> */}
         <div className="mt-16 sticky text-center">
           <h1 className="text-6xl font-bold">{heading}</h1>
           <p className="text-2xl mt-4 mb-4">{subHeading}</p>

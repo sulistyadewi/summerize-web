@@ -3,11 +3,11 @@
 function getIcon(name: string) {
   switch (name) {
     case "Save Time":
-      return <SaveTimeIcon className="text-green-600" />;
+      return <SaveTimeIcon className="mx-auto text-blue-950" />;
     case "Cloud":
-      return <CloudIcon />;
+      return <CloudIcon className="mx-auto text-blue-950" />;
     case "Accurate":
-      return <AccurateIcon />;
+      return <AccurateIcon className="mx-auto text-blue-950" />;
     default:
       return null;
   }
@@ -36,14 +36,14 @@ export default function Features({
 }) {
   // console.dir(data, { depth: null });
   const { feature } = data;
-  console.dir(feature, { depth: null });
-  console.log(feature, "ini heading");
+  // console.dir(feature, { depth: null });
+  // console.log(feature, "ini heading");
 
   return (
-    <div className="w-full flex justify-center my-5">
-      <div className="flex mx-auto">
+    <div className="w-full flex justify-center items-center mb-12 -mt-56">
+      <div className="flex mx-auto justify-center">
         {feature.map((feat, index) => (
-          <div className="text-center py-6">
+          <div key={index} className="text-center border-x-2 border-slate-300">
             {getIcon(feat.icon)}
             <h1 className="mt-2">{feat.heading}</h1>
             <h6 className="text-slate-500 text-sm max-w-sm mt-1">
@@ -61,8 +61,8 @@ function AccurateIcon(props: any) {
     <svg
       {...props}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width="30"
+      height="30"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -80,8 +80,8 @@ function SaveTimeIcon(props: any) {
     <svg
       {...props}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width="30"
+      height="30"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -100,8 +100,8 @@ function CloudIcon(props: any) {
     <svg
       {...props}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width="30"
+      height="30"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"

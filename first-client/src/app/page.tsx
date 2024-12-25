@@ -23,15 +23,16 @@ const render = (block: any) => {
 
 export default async function Home() {
   const strapiData = await getHomePage();
-  console.log(strapiData);
+  // console.log(strapiData, "ini strapiData");
 
   // console.log(strapiData, "test console log");
   console.dir(strapiData, { depth: null });
-  const { blocks } = strapiData;
+  const { blocks } = strapiData?.data;
+  // console.log(blocks, "ini blocks");
   if (!blocks) {
     return <div>blocks not found</div>;
   }
-  return <main>{blocks.map((block: any) => render(block))}</main>;
+  return <main>{blocks.map(render)}</main>;
   // return <Dashboard />;
   // console.log(blocks[1], "ini blocks");
 
