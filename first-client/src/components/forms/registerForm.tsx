@@ -1,26 +1,36 @@
+"use client";
+
 import React from "react";
 import { RegisterAction } from "@/data/auth/authAction";
-import { useActionState } from "react";
+import { useFormState } from "react-dom";
+
+const initialState = {
+  data: "before",
+};
 
 function RegisterForm() {
-  const initialState = {
-    data: "before action",
-  };
+  // console.log(RegisterAction, "ini registerAction");
 
-  console.log(RegisterAction, "ini registerAction");
-
-  const [formState, formAction] = useActionState(RegisterAction, initialState);
-  // console.log(formState, "ini formState");
+  const [formState, formAction] = useFormState(RegisterAction, initialState);
+  console.log(formState, "ini formState");
 
   return (
     <div>
       <div className="max-w-sm ring-4 ring-teal-500 px-6 py-6 mx-auto mt-10 rounded-lg">
-        <form action={formAction}>
+        <form action={formAction} method="POST">
           <div className="flex flex-col">
             <label htmlFor="">Email</label>
             <input
               type="email"
               name="email"
+              className="rounded py-2 mt-2 p-2 bg-gray-300"
+            />
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="">Username</label>
+            <input
+              type="text"
+              name="username"
               className="rounded py-2 mt-2 p-2 bg-gray-300"
             />
           </div>

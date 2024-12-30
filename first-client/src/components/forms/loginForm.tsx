@@ -7,10 +7,10 @@ function LoginForm() {
       <div className="max-w-sm ring-4 ring-amber-400 px-6 py-6 mx-auto rounded-lg">
         <form action="">
           <div className="flex flex-col">
-            <label htmlFor="">Email</label>
+            <label htmlFor="">Username</label>
             <input
-              type="email"
-              name="email"
+              type="text"
+              name="username"
               className="rounded py-2 mt-2 p-2 bg-gray-300"
             />
           </div>
