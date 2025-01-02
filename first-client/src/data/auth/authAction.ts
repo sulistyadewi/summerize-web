@@ -25,7 +25,7 @@ export async function RegisterAction(prevState: any, formData: FormData) {
   if (!user.success) {
     return {
       ...prevState,
-      ZodError: user.error.flatten().fieldErrors,
+      zodErrors: user.error.flatten().fieldErrors,
       strapiError: null,
       message: "Missing fields, failed to register",
     };

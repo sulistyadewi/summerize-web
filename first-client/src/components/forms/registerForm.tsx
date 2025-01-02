@@ -3,6 +3,7 @@
 import React from "react";
 import { RegisterAction } from "@/data/auth/authAction";
 import { useFormState } from "react-dom";
+import { ZodError } from "@/components/zodError";
 
 const initialState = {
   data: "before",
@@ -33,6 +34,7 @@ function RegisterForm() {
               name="username"
               className="rounded py-2 mt-2 p-2 bg-gray-300"
             />
+            <ZodError error={formState?.zodErrors?.username} />
           </div>
           <div className="flex flex-col mt-5">
             <label htmlFor="">Password</label>
@@ -41,6 +43,7 @@ function RegisterForm() {
               name="password"
               className="rounded py-2 mt-2 p-2 bg-gray-300"
             />
+            {/* <ZodError error={formState?.zodErrors?.password} /> */}
           </div>
           <button
             type="submit"
