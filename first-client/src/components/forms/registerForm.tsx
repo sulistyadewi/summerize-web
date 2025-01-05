@@ -3,10 +3,13 @@
 import React from "react";
 import { RegisterAction } from "@/data/auth/authAction";
 import { useFormState } from "react-dom";
-import { ZodError } from "@/components/zodError";
+import { ZodErrors } from "../ZodError";
+import { StrapiError } from "@/components/strapiError";
 
 const initialState = {
-  data: "before",
+  data: null,
+  ZodErrors: null,
+  message: null,
 };
 
 function RegisterForm() {
@@ -34,7 +37,8 @@ function RegisterForm() {
               name="username"
               className="rounded py-2 mt-2 p-2 bg-gray-300"
             />
-            <ZodError error={formState?.zodErrors?.username} />
+            {/* <ZodErrors error={formState?.zodErrors?.username} /> */}
+            {/* <ZodErrors error={formState?.zodErrors?.username} /> */}
           </div>
           <div className="flex flex-col mt-5">
             <label htmlFor="">Password</label>
@@ -43,7 +47,7 @@ function RegisterForm() {
               name="password"
               className="rounded py-2 mt-2 p-2 bg-gray-300"
             />
-            {/* <ZodError error={formState?.zodErrors?.password} /> */}
+            {/* <ZodError error={formState?.zodErrors?.password} />/\ */}
           </div>
           <button
             type="submit"
@@ -51,6 +55,7 @@ function RegisterForm() {
           >
             Register
           </button>
+          <StrapiError />
           <h6 className="mt-5">
             Have an account{" "}
             <a href="/login">

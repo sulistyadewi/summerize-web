@@ -1,5 +1,7 @@
 "use server";
 import { object, z, ZodError } from "zod";
+import { RegisterService } from "@/data/services/authService";
+import { ZodErrors } from "@/components/ZodError";
 
 const schemaRegister = z.object({
   email: z.string().email({
@@ -30,7 +32,27 @@ export async function RegisterAction(prevState: any, formData: FormData) {
       message: "Missing fields, failed to register",
     };
   }
+  console.log(user, "ini user");
+
+  const responseData = await RegisterService(user.data);
   // console.log(user, "ini user");
+  if (!responseData) {
+    return {
+      ...prevState,
+      zodErrors: null,
+      strapiError: null,
+      message: "Someting when wrong",
+    };
+  }
+
+  if (responseData.error) {
+    return {
+      ...prevState,
+      zodErrors: null,
+      strapiError: responseData.error,
+      message: "Failed to register",
+    };
+  }
   return {
     ...prevState,
     data: user,

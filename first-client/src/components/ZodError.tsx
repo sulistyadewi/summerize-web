@@ -1,7 +1,7 @@
 import React from "react";
 
-function ZodError({ error }: { error: string[] }) {
-  if (!error) return null;
+export function ZodErrors({ error }: { error: string[] }) {
+  if (!error) return "";
 
   return error.map((err: string, index: number) => {
     <div key={index} className="text-lg">
@@ -10,4 +10,4 @@ function ZodError({ error }: { error: string[] }) {
   });
 }
 
-export default ZodError;
+// export default ZodErrors;
