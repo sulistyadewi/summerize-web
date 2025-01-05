@@ -55,7 +55,7 @@ function RegisterForm() {
           >
             Register
           </button>
-          <StrapiError />
+          {/* <StrapiError /> */}
           <h6 className="mt-5">
             Have an account{" "}
             <a href="/login">
