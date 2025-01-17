@@ -21,7 +21,7 @@ function RegisterForm() {
   return (
     <div>
       <div className="max-w-sm ring-4 ring-teal-500 px-6 py-6 mx-auto mt-10 rounded-lg">
-        <form action={formAction} method="POST">
+        <form action={formAction} method="POST" encType="">
           <div className="flex flex-col">
             <label htmlFor="">Email</label>
             <input
@@ -55,7 +55,7 @@ function RegisterForm() {
           >
             Register
           </button>
-          {/* <StrapiError /> */}
+          <StrapiError error={formState?.strapiError} />
           <h6 className="mt-5">
             Have an account{" "}
             <a href="/login">

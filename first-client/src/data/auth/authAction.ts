@@ -17,7 +17,7 @@ const schemaRegister = z.object({
 
 export async function RegisterAction(prevState: any, formData: FormData) {
   // console.log("hello from action");
-  console.log(prevState);
+  console.log(prevState, "ini register action");
 
   const user = schemaRegister.safeParse({
     email: formData.get("email"),
@@ -32,7 +32,7 @@ export async function RegisterAction(prevState: any, formData: FormData) {
       message: "Missing fields, failed to register",
     };
   }
-  console.log(user, "ini user");
+  // console.log(user, "ini user");
 
   const responseData = await RegisterService(user.data);
   // console.log(user, "ini user");
@@ -53,6 +53,9 @@ export async function RegisterAction(prevState: any, formData: FormData) {
       message: "Failed to register",
     };
   }
+  console.log("=========================");
+  console.log(responseData.jwt, "ini token");
+  console.log("=========================");
   return {
     ...prevState,
     data: user,
