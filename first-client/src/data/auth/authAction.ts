@@ -1,7 +1,17 @@
 "use server";
+import { cookies } from "next/headers";
 import { object, z, ZodError } from "zod";
 import { RegisterService } from "@/data/services/authService";
 import { ZodErrors } from "@/components/ZodError";
+import { redirect } from "next/navigation";
+
+const config = {
+  maxAge: 60 * 60 * 24 * 7,
+  path: "/",
+  domain: process.env.HOST ?? "localhost",
+  httpOnly: true,
+  secure: process.env.NODE_ENV === "production",
+};
 
 const schemaRegister = z.object({
   email: z.string().email({
@@ -53,12 +63,8 @@ export async function RegisterAction(prevState: any, formData: FormData) {
       message: "Failed to register",
     };
   }
-  console.log("=========================");
-  console.log(responseData.jwt, "ini token");
-  console.log("=========================");
-  return {
-    ...prevState,
-    data: user,
-  };
+  const cookiesStore = await cookies();
+  cookiesStore.set("jwt", responseData.jwt, config);
+  redirect("/dashboard");
   // console.log(user, "ini user");
 }

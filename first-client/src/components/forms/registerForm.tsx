@@ -23,14 +23,6 @@ function RegisterForm() {
       <div className="max-w-sm ring-4 ring-teal-500 px-6 py-6 mx-auto mt-10 rounded-lg">
         <form action={formAction} method="POST" encType="">
           <div className="flex flex-col">
-            <label htmlFor="">Email</label>
-            <input
-              type="email"
-              name="email"
-              className="rounded py-2 mt-2 p-2 bg-gray-300"
-            />
-          </div>
-          <div className="flex flex-col">
             <label htmlFor="">Username</label>
             <input
               type="text"
@@ -39,6 +31,14 @@ function RegisterForm() {
             />
             {/* <ZodErrors error={formState?.zodErrors?.username} /> */}
             {/* <ZodErrors error={formState?.zodErrors?.username} /> */}
+          </div>
+          <div className="flex flex-col">
+            <label htmlFor="">Email</label>
+            <input
+              type="email"
+              name="email"
+              className="rounded py-2 mt-2 p-2 bg-gray-300"
+            />
           </div>
           <div className="flex flex-col mt-5">
             <label htmlFor="">Password</label>
