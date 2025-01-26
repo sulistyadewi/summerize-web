@@ -3,28 +3,34 @@ import Card from "@/components/card";
 
 export default async function Dashboard() {
   return (
-    <div className="w-full h-screen bg-green-400 flex">
-      <div className="bg-red-400  h-screen flex basis-[20%]">
+    <div className="w-full h-screen bg-green-400 flex -z-50 -mt-2">
+      <div className="bg-blue-100  h-screen flex basis-[20%]">
         <div className="">
-          <div className="-mt-7 -ml-4">
+          {/* <div className="-mt-7 -ml-4">
             <Image src="/logo.png" width={170} height={170} alt="logo" />
-          </div>
+          </div> */}
           <ul className="flex flex-col w-[17rem]">
-            <li className="text-xl p-2 bg-slate-500">Dahsboard</li>
-            <li className="text-xl p-2">Summerize</li>
-            <li className="text-xl p-2">Account</li>
+            <li className="text-xl p-2 hover:bg-blue-800 hover:text-white">
+              Dahsboard
+            </li>
+            <li className="text-xl p-2 hover:bg-blue-800 hover:text-white">
+              Summerize
+            </li>
+            <li className="text-xl p-2 hover:bg-blue-800 hover:text-white">
+              Account
+            </li>
           </ul>
         </div>
       </div>
       <div className="bg-yellow-400 h-screen flex flex-col basis-[80%]">
-        <div className="bg-orange-400 flex basis-[10%]">
+        <div className="bg-sky-700 flex basis-[10%]">
           <div className="flex self-center mx-auto gap-3">
             <input
               type="text"
-              placeholder="URL"
+              placeholder="url"
               className="bg-white w-80 h-9 p-1 rounded-lg text-left"
             />
-            <button className="bg-emerald-500 px-2 rounded-lg">
+            <button className="bg-amber-500 px-2 rounded-lg font-semibold">
               Summerize
             </button>
           </div>

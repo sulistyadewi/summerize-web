@@ -16,7 +16,7 @@ function RegisterForm() {
   // console.log(RegisterAction, "ini registerAction");
 
   const [formState, formAction] = useFormState(RegisterAction, initialState);
-  console.log(formState, "ini formState");
+  // console.log(formState, "ini formState");
 
   return (
     <div>
