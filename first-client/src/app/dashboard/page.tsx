@@ -1,5 +1,7 @@
-import Image from "next/image";
-import Card from "@/components/card";
+// import Image from "next/image";
+// import Card from "@/components/card";
+
+import { Router, useRouter } from "next/router";
 
 export default async function Dashboard() {
   return (
@@ -11,13 +13,17 @@ export default async function Dashboard() {
           </div> */}
           <ul className="flex flex-col w-[17rem]">
             <li className="text-xl p-2 hover:bg-blue-800 hover:text-white">
-              Dahsboard
+              <button onClick={() => router.push("/dashboard")}>
+                Dahsboard
+              </button>
             </li>
             <li className="text-xl p-2 hover:bg-blue-800 hover:text-white">
-              Summerize
+              <button onClick={() => router.push("/summerize")}>
+                Summerize
+              </button>
             </li>
             <li className="text-xl p-2 hover:bg-blue-800 hover:text-white">
-              Account
+              <button onClick={() => router.push("/account")}>Account</button>
             </li>
           </ul>
         </div>

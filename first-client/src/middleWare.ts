@@ -16,13 +16,13 @@ export async function MiddleWare(request: NextRequest) {
   console.log(user, "ini user");
   console.log(currentPath, "ini currentPath");
 
-  if (isProtectedRoute(currentPath) && user.ok === false) {
-    return NextResponse.redirect(new URL("/login", request.url));
-  }
-  return NextResponse.next();
-
-  // if (currentPath.startsWith("/dashboard") && user.ok === false) {
+  // if (isProtectedRoute(currentPath) && user.ok === false) {
   //   return NextResponse.redirect(new URL("/login", request.url));
   // }
   // return NextResponse.next();
+
+  if (currentPath.startsWith("/dashboard") && user.ok === false) {
+    return NextResponse.redirect(new URL("/login", request.url));
+  }
+  return NextResponse.next();
 }
