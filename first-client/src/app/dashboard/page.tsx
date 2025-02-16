@@ -1,9 +1,12 @@
 // import Image from "next/image";
 // import Card from "@/components/card";
 
+import BtnLogout from "@/components/btnLogout";
+
 export default async function Dashboard() {
   return (
     <div className="bg-yellow-400 h-screen flex flex-col basis-[80%]">
+      <BtnLogout />
       <div className="bg-sky-700 flex basis-[10%]">
         <div className="flex self-center mx-auto gap-3">
           <input

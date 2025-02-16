@@ -9,7 +9,7 @@ interface registerUserProps {
 }
 
 interface loginUserProps {
-  username: string;
+  identifier: string;
   password: string;
 }
 

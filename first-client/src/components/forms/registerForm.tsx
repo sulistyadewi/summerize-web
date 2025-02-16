@@ -3,7 +3,7 @@
 import React from "react";
 import { RegisterAction } from "@/data/auth/authAction";
 import { useFormState } from "react-dom";
-import { ZodErrors } from "../ZodError";
+// import { ZodErrors } from "../ZodError";
 import { StrapiError } from "@/components/strapiError";
 
 const initialState = {

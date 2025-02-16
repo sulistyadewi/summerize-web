@@ -1,20 +1,20 @@
 import React from "react";
 import { GetToken } from "./getToken";
 import { getStrapiUrl } from "@/lib/utils";
-import qs from "qs";
+// import qs from "qs";
 
-const query = qs.stringify({
-  populate: {
-    image: {
-      fields: ["url", "alternativeText"],
-    },
-  },
-});
+// const query = qs.stringify({
+//   populate: {
+//     image: {
+//       fields: ["url", "alternativeText"],
+//     },
+//   },
+// });
 
 export async function getUser() {
   let baseUrl = getStrapiUrl();
   let url = new URL("/api/users/me", baseUrl);
-  url.search = query;
+  // url.search = query;
   let token = await GetToken();
   if (!token) return { ok: false, data: null, error: null };
 
