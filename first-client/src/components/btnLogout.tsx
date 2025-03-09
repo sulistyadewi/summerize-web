@@ -1,15 +1,13 @@
 import React from "react";
 import { LogOut } from "@/data/auth/authAction";
+import { FaArrowRightFromBracket } from "react-icons/fa6";
 
 function BtnLogout() {
   return (
     <div>
       <form action={LogOut}>
-        <button
-          type="submit"
-          className="px-3 py-2 text-white bg-black rounded-md"
-        >
-          Log Out
+        <button type="submit">
+          <FaArrowRightFromBracket className="text-red-500 w-6 h-6 hover:text-red-800" />
         </button>
       </form>
     </div>

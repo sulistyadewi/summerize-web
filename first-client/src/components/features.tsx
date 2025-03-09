@@ -40,7 +40,7 @@ export default function Features({
   // console.log(feature, "ini heading");
 
   return (
-    <div className="w-full flex justify-center items-center mb-12 -mt-56">
+    <div className="w-full flex justify-center items-center mb-12 -mt-10">
       <div className="flex mx-auto justify-center">
         {feature.map((feat, index) => (
           <div key={index} className="text-center border-x-2 border-slate-300">

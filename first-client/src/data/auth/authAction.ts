@@ -82,7 +82,7 @@ export async function RegisterAction(prevState: any, formData: FormData) {
 export async function LoginAction(prevState: any, formData: FormData) {
   const validate = schemaLogin.safeParse({
     identifier: formData.get("identifier"),
-    password: formData.get("passowrd"),
+    password: formData.get("password"),
   });
 
   if (!validate.success) {

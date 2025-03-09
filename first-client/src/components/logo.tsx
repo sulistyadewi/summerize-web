@@ -26,9 +26,9 @@ interface logoProps {
 
 export function Logo({ text = "logoText", dark = false }: Readonly<logoProps>) {
   return (
-    <Link className="flex items-center gap-2 justify-between -mt-14" href="/">
+    <Link className="flex items-center gap-2 justify-between" href="/">
       {/* <MountainIcon className={"h-6 w-6  text-pink-500"} /> */}
-      <img src="/logo.png" alt="" className="h-60 w-72 -ml-12" />
+      <img src="/logo.png" alt="" className="h-24 w-24 object-cover" />
       <span
         className={`text-lg font-semibold${
           dark ? "text-white hidden" : "text-slate-900 hidden"

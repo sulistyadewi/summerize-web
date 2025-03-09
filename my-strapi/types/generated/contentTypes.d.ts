@@ -441,7 +441,6 @@ export interface PluginUsersPermissionsUser
     displayName: 'User';
   };
   options: {
-    timestamps: true;
     draftAndPublish: false;
   };
   attributes: {
@@ -470,6 +469,10 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    firstName: Schema.Attribute.String;
+    lastName: Schema.Attribute.String;
+    bio: Schema.Attribute.Text;
+    credit: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
