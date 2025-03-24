@@ -10,8 +10,8 @@ export default async function Account() {
   const userLoginImg = userData?.image;
   return (
     <div className="flex bg-blue-400 h-screen">
-      <ProfileForm data={userData} />;
-      <ProfileImgForm />;
+      <ProfileForm data={userData} />
+      <ProfileImgForm data={userLoginImg} />
     </div>
   );
 }

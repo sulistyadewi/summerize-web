@@ -473,6 +473,7 @@ export interface PluginUsersPermissionsUser
     lastName: Schema.Attribute.String;
     bio: Schema.Attribute.Text;
     credit: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    image: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

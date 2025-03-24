@@ -8,7 +8,7 @@ function Errorr({ error }: { error: Error & { digest?: string } }) {
     console.error(error);
   }, [error]);
   return (
-    <div className="-z-50 mb-[4.5rem]">
+    <div className="-z-50 mb-[4.5rem] mt-28">
       {/* <p>{error.message}</p> */}
       <div className="mx-auto -mt-28 border-2 w-[32rem] pb-7 rounded-3xl border-gray-300 bg-gray-100">
         <img

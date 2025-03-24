@@ -1,15 +1,15 @@
 import React from "react";
+import qs from "qs";
 import { GetToken } from "./getToken";
 import { getStrapiUrl } from "@/lib/utils";
-// import qs from "qs";
 
-// const query = qs.stringify({
-//   populate: {
-//     image: {
-//       fields: ["url", "alternativeText"],
-//     },
-//   },
-// });
+const query = qs.stringify({
+  populate: {
+    image: {
+      fields: ["url", "alternativeText"],
+    },
+  },
+});
 
 export async function getUser() {
   let baseUrl = getStrapiUrl();

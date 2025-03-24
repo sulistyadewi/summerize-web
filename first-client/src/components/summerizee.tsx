@@ -2,7 +2,7 @@ import React from "react";
 
 function Summerizee() {
   return (
-    <div className="grid-rows-4">
+    <div className="flex flex-wrap gap-4 bg-emerald-300 w-full h-screen basis-[85%] justify-evenly">
       <div className="bg-cyan-600 max-w-sm w-72 h-56 p-3 rounded-lg">
         <h1 className="text-2xl">Title</h1>
         <p className="mt-4 text-ellipsis overflow-hidden">
